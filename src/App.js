@@ -1,5 +1,6 @@
 import './App.css';
 import PlantCard from './components/PlantCard';
+import SkeletonCard from './components/SkeletonCard';
 import { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import PlantDetail from './components/PlantDetail';
@@ -13,6 +14,24 @@ import AI from './assets/images/AI.svg';
 
 
 function App() {
+  const [plants, setPlants] = useState([]);
+  const [loading, setLoading] = useState(true);
+
+  useEffect(() => {
+    setLoading(true);
+    fetch('https://rootin-api.hojun.link/v1/plants')
+      .then(response => response.json())
+      .then(response => {
+        console.log('API Response:', response);
+        setPlants(response.data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error fetching plants:', error);
+        setLoading(false);
+      });
+  }, []);
+
   return (
     <Router>
       <Routes>
@@ -25,12 +44,21 @@ function App() {
 
 function Home() {
   const [plants, setPlants] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
+    setLoading(true);
     fetch('https://rootin-api.hojun.link/v1/plants')
       .then(response => response.json())
-      .then(response => setPlants(response.data))
-      .catch(error => console.error('Error fetching plants:', error));
+      .then(response => {
+        console.log('API Response:', response);
+        setPlants(response.data);
+        setLoading(false);
+      })
+      .catch(error => {
+        console.error('Error fetching plants:', error);
+        setLoading(false);
+      });
   }, []);
 
   return (
@@ -67,16 +95,22 @@ function Home() {
       <section className="my-plants">
         <h2>My Plants</h2>
         <div className="plants-grid">
-          {plants.map(plant => (
-            <PlantCard
-              key={plant.plantId}
-              name={plant.nickname || plant.plantTypeName}
-              type={plant.plantTypeName}
-              location={plant.category}
-              image={plant.imageUrl}
-              status={plant.status.toLowerCase()}
-            />
-          ))}
+          {loading ? (
+            [...Array(4)].map((_, index) => (
+              <SkeletonCard key={index} />
+            ))
+          ) : (
+            plants.map(plant => (
+              <PlantCard
+                key={plant.plantId}
+                name={plant.nickname || plant.plantTypeName}
+                type={plant.plantTypeName}
+                location={plant.category}
+                image={plant.imageUrl}
+                status={plant.status.toLowerCase()}
+              />
+            ))
+          )}
         </div>
       </section>
 

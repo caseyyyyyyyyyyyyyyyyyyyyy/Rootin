@@ -1,23 +1,21 @@
 import React from 'react';
-import status_water from '../assets/images/overwater.svg';
-import status_ideal from '../assets/images/ideal.svg';
-import status_water_needed from '../assets/images/underwater.svg';
-import status_no_sensor from '../assets/images/no_sensor.svg';
+import underwater from '../assets/images/underwater.svg';
+import overwater from '../assets/images/overwater.svg';
+import ideal from '../assets/images/ideal.svg';
+import no_sensor from '../assets/images/no_sensor.svg';
 
 function PlantCard({ name, type, location, image, status }) {
     const getStatusIcon = (status) => {
-        console.log(status);
         switch (status) {
-            case 'overwater':
-                return status_water;
-            case 'ideal':
-                return status_ideal;
             case 'water_needed':
-                return status_water_needed;
+                return underwater;
+            case 'overwater':
+                return overwater;
             case 'no_sensor':
-                return status_no_sensor;
+                return no_sensor;
+            case 'ideal':
             default:
-                return status_ideal;
+                return ideal;
         }
     };
 
