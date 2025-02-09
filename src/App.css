@@ -1,0 +1,354 @@
+.App {
+  text-align: left;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 0 16px 140px 16px;
+}
+
+header {
+  margin-bottom: 20px;
+}
+
+.watering {
+  background: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 30px;
+}
+
+.plants-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+  padding: 16px;
+}
+
+.plant-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.plant-card:active {
+  opacity: 0.8;
+}
+
+.plant-container {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 1;
+}
+
+.plant-image {
+  position: relative;
+  width: 100%;
+  padding-top: 100%;
+}
+
+.plant-image img.plant-img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.status-icon {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  width: 24px;
+  height: 24px;
+}
+
+.status-icon img {
+  width: 100%;
+  height: 100%;
+}
+
+.plant-info {
+  padding: 12px;
+}
+
+.plant-info h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+}
+
+.plant-info .korean-name {
+  margin: 4px 0;
+  font-size: 12px;
+  color: #6F6F6F;
+  text-align: left;
+}
+
+.plant-info .water-info {
+  margin: 4px 0 0;
+  font-size: 12px;
+  color: #666;
+  text-align: left;
+}
+
+.plant-info p {
+  margin: 4px 0 0;
+  font-size: 14px;
+  color: #666;
+}
+
+.plant-type {
+  font-weight: 500;
+}
+
+.plant-location {
+  color: #888;
+}
+
+.nav-button {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  border: none;
+  background: none;
+  padding: 0 10px;
+  cursor: pointer;
+  height: 98px;
+}
+
+.nav-button img {
+  width: 88px;
+  height: 88px;
+}
+
+nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: white;
+  display: flex;
+  justify-content: space-between;
+  box-shadow: 0 -2px 5px rgba(0,0,0,0.1);
+  height: 100px;
+  padding: 0 43px;
+}
+
+.my-plants h2 {
+  text-align: left;
+  margin: 0 0 24px 0;
+}
+
+.watering-notice {
+  margin: 0 0 24px 0;
+  font-size: 14px;
+  color: #6F6F6F;
+  text-align: left;
+  line-height: 1.4;
+}
+
+.floating-chat-button {
+  position: fixed;
+  right: 0;
+  bottom: 100px;
+  min-width: 100px;
+  min-height: 100px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50px;
+  background: transparent;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  padding: 0;
+  overflow: visible;
+  box-sizing: border-box;
+}
+
+.floating-chat-button img {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  max-width: 100px;
+  max-height: 100px;
+}
+
+.next-watering {
+  padding: 12px 0;
+  border-radius: 10px;
+  margin-bottom: 28px;
+}
+
+.next-watering h2 {
+  font-size: 24px;
+  font-weight: bold;
+  margin: 0 0 24px 0;
+  color: #000000;
+}
+
+.watering-content {
+  background: #EEEEEE;
+  border-radius: 10px;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.watering-text {
+  flex: 1;
+}
+
+.main-text {
+  font-size: 16px;
+  font-weight: bold;
+  color: #000000;
+  margin: 0 0 8px 0;
+  line-height: 1.4;
+}
+
+.check-text {
+  font-size: 14px;
+  color: #6F6F6F;
+  margin: 0;
+}
+
+.leaf-image {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+  margin-left: auto;
+  filter: invert(67%) sepia(93%) saturate(385%) hue-rotate(127deg) brightness(87%) contrast(84%);
+}
+
+.skeleton {
+  background: #f0f0f0;
+  background: linear-gradient(110deg, #ececec 8%, #f5f5f5 18%, #ececec 33%);
+  background-size: 200% 100%;
+  animation: 1.5s shine linear infinite;
+  border-radius: 15px;
+}
+
+.skeleton-card {
+  height: 200px;
+}
+
+.skeleton-text {
+  height: 20px;
+  margin-bottom: 8px;
+  width: 80%;
+}
+
+.skeleton-text-short {
+  width: 60%;
+}
+
+@keyframes shine {
+  to {
+    background-position-x: -200%;
+  }
+}
+
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 100px 0 16px 0;
+  margin-bottom: 40px;
+}
+
+.rootin-logo {
+  height: 24px;
+  object-fit: contain;
+}
+
+.add-plant-button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: #F2F2F2;
+  border: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding: 0;
+}
+
+.add-plant-button img {
+  width: 40px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.bottom-nav {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  background: white;
+  padding: 0;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.bottom-nav button {
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bottom-nav button img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.bottom-nav svg {
+  fill: currentColor;
+  stroke: none;
+  background: none;
+}
+
+.bottom-nav button:hover {
+  background: none;
+}
+
+.ai-chat-button {
+  position: fixed;
+  right: 0;
+  bottom: 80px;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  z-index: 1000;
+}
+
+.ai-chat-button img {
+  width: 100px;
+  height: 100px;
+  background: none;
+}
+
+/* SVG 자체의 스타일 수정 */
+.ai-chat-button svg {
+  fill: currentColor;
+  stroke: none;
+  background: none;
+}
+
+.ai-chat-button:hover {
+  background: none;
+}
