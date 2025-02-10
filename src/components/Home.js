@@ -48,7 +48,7 @@ function Home() {
       </header>
 
       <section className="next-watering">
-        <h2>Today's Wateringㅇㅇ</h2>
+        <h2>Today's Watering</h2>
         <div className="watering-content">
           <div className="watering-status">
             <div className="watering-text">
