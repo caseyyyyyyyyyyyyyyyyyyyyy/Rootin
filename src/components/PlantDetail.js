@@ -91,30 +91,30 @@ function PlantDetail() {
 
       <section className="overall-tips">
         <h2>Overall Tips</h2>
-        <div className="tips-grid">
-          <div className="tip-item">
-            <span>Difficulty</span>
-            <strong>{plant.info_difficulty || 'Easy'}</strong>
+        <div className="tip-boxes">
+          <div className="tip-box">
+            <h3>Difficulty</h3>
+            <p>{plant.info_difficulty || 'Easy'}</p>
           </div>
-          <div className="tip-item">
-            <span>Watering</span>
-            <strong>{plant.info_watering || '1-2 weeks'}</strong>
+          <div className="tip-box">
+            <h3>Watering</h3>
+            <p>{plant.info_watering || '1-2 weeks'}</p>
           </div>
-          <div className="tip-item">
-            <span>Sunlight</span>
-            <strong>{plant.info_light || 'Direct'}</strong>
+          <div className="tip-box">
+            <h3>Sunlight</h3>
+            <p>{plant.info_light || 'Direct'}</p>
           </div>
-          <div className="tip-item">
-            <span>Soil Type</span>
-            <strong>{plant.info_soil_type || 'Well-Drain'}</strong>
+          <div className="tip-box">
+            <h3>Soil Type</h3>
+            <p>{plant.info_soil_type || 'Well-Drain'}</p>
           </div>
-          <div className="tip-item">
-            <span>Repotting</span>
-            <strong>{plant.info_repotting || '1 month'}</strong>
+          <div className="tip-box">
+            <h3>Repotting</h3>
+            <p>{plant.info_repotting || '1 month'}</p>
           </div>
-          <div className="tip-item">
-            <span>Toxicity</span>
-            <strong>{plant.info_toxicity || 'Non-toxic'}</strong>
+          <div className="tip-box">
+            <h3>Toxicity</h3>
+            <p>{plant.info_toxicity || 'Non-toxic'}</p>
           </div>
         </div>
       </section>
