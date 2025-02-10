@@ -60,8 +60,8 @@ header {
 
 .status-indicator {
   position: absolute;
-  bottom: 12px;
-  left: 12px;
+  bottom: 8px;
+  left: 8px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
@@ -101,29 +101,15 @@ header {
 .plant-info h3 {
   margin: 0;
   font-size: 18px;
-  font-weight: 600;
-  color: #000;
   text-align: left;
-}
-
-.plant-info .korean-name {
-  margin: 4px 0;
-  font-size: 12px;
-  color: #6F6F6F;
-  text-align: left;
-}
-
-.plant-info .water-info {
-  margin: 4px 0 0;
-  font-size: 12px;
-  color: #666;
-  text-align: left;
+  font-weight: bold;
 }
 
 .plant-info p {
   margin: 4px 0;
   color: #666;
   text-align: left;
+  font-size: 14px;
 }
 
 .plant-type {
@@ -232,7 +218,7 @@ nav {
 
 .check-watering {
   color: #666;
-  font-size: 16px;
+  font-size: 14px;
   margin: 0;
   display: flex;
   align-items: center;
@@ -441,4 +427,22 @@ nav {
   margin-bottom: 8px;
   border-radius: 4px;
   width: 50%;
+}
+
+/* PlantDetail 페이지 스타일 */
+.detail-plant-info {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.detail-plant-info h1 {
+  margin: 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+.detail-plant-info p {
+  margin: 4px 0;
+  color: #666;
+  text-align: center;
 }
