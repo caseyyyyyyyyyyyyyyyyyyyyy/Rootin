@@ -78,9 +78,7 @@ function PlantDetail() {
 
       <div className="action-buttons">
         <button className="care-tips">Care tips</button>
-        <button className="soil-moisture">
-          <span style={{ whiteSpace: 'nowrap' }}>Real-time Soil Moisture</span>
-        </button>
+        <button className="soil-moisture">Real-time Soil Moisture</button>
       </div>
 
       <div className="chat-section">
@@ -88,6 +86,8 @@ function PlantDetail() {
         <p>Ask our Chatbot and resolve your curiosities.</p>
         <button className="chatbot-button">Go to Chatbot</button>
       </div>
+
+      <div className="divider"></div>
 
       <section className="overall-tips">
         <h2>Overall Tips</h2>

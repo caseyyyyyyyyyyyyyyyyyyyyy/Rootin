@@ -430,9 +430,28 @@ nav {
 }
 
 /* PlantDetail 페이지 스타일 */
+.plant-detail {
+  padding: 36px 16px 24px 16px;  /* 상단 패딩을 36px로 증가 */
+}
+
+.detail-header {
+  margin-top: 0;
+  margin-bottom: 16px;  /* 24px에서 16px로 줄임 */
+  display: flex;
+  justify-content: flex-start;
+}
+
+.back-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  background-color: #F5F5F5;
+}
+
 .detail-plant-info {
-  text-align: center;
-  padding: 20px 0;
+  margin-top: 12px;  /* 24px에서 12px로 줄임 */
 }
 
 .detail-plant-info h1 {
@@ -449,9 +468,9 @@ nav {
 
 .detail-plant-image {
   width: 100%;
-  max-width: 300px;
+  max-width: 260px;
   aspect-ratio: 1 / 1;
-  margin: 20px auto;  /* 32px에서 20px로 수정 */
+  margin: 28px auto;  /* 20px에서 28px로 증가 */
   border-radius: 24px;
   overflow: hidden;
 }
@@ -466,6 +485,7 @@ nav {
   display: flex;
   gap: 12px;
   margin: 20px 0;
+  justify-content: flex-start;  /* 왼쪽 정렬로 변경 */
 }
 
 .action-buttons button {
@@ -474,7 +494,8 @@ nav {
   border: none;
   font-size: 16px;
   cursor: pointer;
-  width: fit-content;
+  display: inline-block;  /* 인라인 블록으로 변경 */
+  width: auto;  /* 자동 너비로 변경 */
 }
 
 .action-buttons .care-tips {
@@ -485,4 +506,32 @@ nav {
 .action-buttons .soil-moisture {
   background-color: #F5F5F5;
   color: #000;
+  padding-left: 24px;  /* 왼쪽 패딩만 24px로 증가 */
+  padding-right: 24px;  /* 오른쪽 패딩도 동일하게 24px로 설정 */
+}
+
+.chatbot-button {
+  padding: 10px 16px;
+  background-color: #fff;
+  color: #000;
+  font-size: 16px;
+  border: none;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.chat-section {
+  background-color: #04ABB0;
+  padding: 24px;
+  border-radius: 16px;
+  color: #fff;
+  margin-bottom: 24px;
+}
+
+/* 구분선 추가 */
+.divider {
+  height: 8px;  /* 6px에서 8px로 증가 */
+  background-color: #F8F8F8;  /* F5F5F5에서 더 연한 F8F8F8로 변경 */
+  margin: 32px 0;
+  width: 100%;
 }
