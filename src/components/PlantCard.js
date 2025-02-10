@@ -9,32 +9,41 @@ function PlantCard({ plantId, name, type, location, image, status }) {
     const navigate = useNavigate();
 
     const getStatusIcon = (status) => {
-        switch (status) {
-            case 'IDEAL':
+        const statusLower = status?.toLowerCase();
+        
+        switch (statusLower) {
+            case 'ideal':
                 return idealIcon;
-            case 'WATER_NEEDED':
+            case 'water_needed':
                 return underwaterIcon;
-            case 'OVERWATER':
+            case 'overwater':
                 return overwaterIcon;
-            case 'NO_SENSOR':
+            case 'no_sensor':
                 return noSensorIcon;
             default:
+                console.log('Unknown status:', status);
                 return idealIcon;
         }
+    };
+
+    const formatLocation = (location) => {
+        if (!location) return '';
+        const parts = location.split('/');
+        return `In ${parts[parts.length - 1]}`;
     };
 
     return (
         <div className="plant-card" onClick={() => navigate(`/plant/${plantId}`)}>
             <div className="plant-image">
                 <img src={image} alt={name} />
-                <div className="status-indicator">
-                    <img src={getStatusIcon(status)} alt={status} />
+                <div className={`status-indicator ${status?.toLowerCase()}`}>
+                    <img src={getStatusIcon(status)} alt={status?.toLowerCase()} />
                 </div>
             </div>
             <div className="plant-info">
                 <h3>{name}</h3>
                 <p>{type}</p>
-                <p>{location}</p>
+                <p>{formatLocation(location)}</p>
             </div>
         </div>
     );

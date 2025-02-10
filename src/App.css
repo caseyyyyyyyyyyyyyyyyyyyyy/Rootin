@@ -42,12 +42,14 @@ header {
   background: white;
   border-radius: 24px;
   overflow: hidden;
+  padding: 0;
+  text-align: left;
 }
 
 .plant-image {
   position: relative;
   width: 100%;
-  aspect-ratio: 1 / 1;  /* 1:1 비율 설정 */
+  aspect-ratio: 1 / 1;
   overflow: hidden;
   border-radius: 24px;
 }
@@ -76,40 +78,24 @@ header {
   object-fit: contain;
 }
 
-/* 상태별 스타일 */
-.status-indicator.ideal {
-  background-color: #2E7D32;  /* 초록색 */
-}
-
-.status-indicator.water-needed {
-  background-color: #FFC107;  /* 노란색 */
-}
-
-.status-indicator.overwater {
-  background-color: #1976D2;  /* 파란색 */
-}
-
-.status-indicator.no-sensor {
-  background-color: #9E9E9E;  /* 회색 */
-}
-
 .plant-info {
   padding: 12px 0;
+  margin-left: -20px;
   text-align: left;
 }
 
 .plant-info h3 {
   margin: 0;
   font-size: 18px;
-  text-align: left;
   font-weight: bold;
+  text-align: left;
 }
 
 .plant-info p {
   margin: 4px 0;
   color: #666;
-  text-align: left;
   font-size: 14px;
+  text-align: left;
 }
 
 .plant-type {
@@ -197,59 +183,36 @@ nav {
 }
 
 .watering-content {
-  background: #F5F5F5;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #F8F8F8;
   border-radius: 16px;
   padding: 24px;
-  margin-top: 16px;
 }
 
-.watering-status {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.watering-text h3 {
-  font-size: 18px;
-  font-weight: 600;
-  margin: 0 0 8px 0;
-  white-space: pre-line;
-}
-
-.check-watering {
-  color: #666;
-  font-size: 14px;
-  margin: 0;
-  display: flex;
-  align-items: center;
-  gap: 8px;
-}
-
-.monstera-leaf {
-  width: 80px;
-  height: 80px;
+.watering-text {
+  flex: 1;
 }
 
 .main-text {
-  font-size: 16px;
+  font-size: 24px;
   font-weight: bold;
-  color: #000000;
-  margin: 0 0 8px 0;
+  margin: 0;
   line-height: 1.4;
 }
 
 .check-text {
   font-size: 14px;
   color: #6F6F6F;
-  margin: 0;
+  margin: 16px 0 0 0;
 }
 
 .leaf-image {
   width: 80px;
   height: 80px;
-  object-fit: contain;
-  margin-left: auto;
-  filter: invert(67%) sepia(93%) saturate(385%) hue-rotate(127deg) brightness(87%) contrast(84%);
+  margin-left: 20px;
+  flex-shrink: 0;
 }
 
 .skeleton {
@@ -574,4 +537,33 @@ nav {
 .tip-box p {
   font-size: 14px;  /* 16px에서 14px로 수정 */
   font-weight: bold;
+}
+
+.box {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 10px;
+  width: 100%; /* 필요에 따라 조정 */
+  box-sizing: border-box;
+}
+
+.content {
+  flex: 1;
+  max-width: calc(100% - 100px); /* 이미지와 여백을 고려한 너비 */
+}
+
+.fixed-right {
+  width: 80px;
+  height: 80px;
+  margin-left: 20px;
+}
+
+.watering-text h3 {
+  margin: 0;
+  font-size: 18px;
+  line-height: 1.2;
+  white-space: pre-line;
 }

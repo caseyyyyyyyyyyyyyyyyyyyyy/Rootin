@@ -1,0 +1,29 @@
+.watering-content {
+  background: #F8F8F8;
+  border-radius: 16px;
+  padding: 24px;
+  margin: 16px;
+}
+
+.watering-status {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.watering-text {
+  flex: 1;
+}
+
+.watering-text h3 {
+  margin: 0;
+  font-size: 24px;
+  line-height: 1.2;
+  white-space: pre-line;
+}
+
+.monstera-leaf {
+  width: 120px;
+  height: auto;
+  margin-left: 20px;
+} 

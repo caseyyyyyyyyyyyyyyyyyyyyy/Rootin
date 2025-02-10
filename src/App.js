@@ -81,8 +81,11 @@ function Home() {
         <h2>Today's Watering</h2>
         <div className="watering-content">
           <div className="watering-text">
-            <p className="main-text">You have 1 plant<br />waiting to be watered</p>
-            <p className="check-text">Check your watering →</p>
+            <h3 className="main-text">You have 1 plant</h3>
+            <h3 className="main-text">waiting to be watered</h3>
+            <p className="check-text">
+              Check your watering <span>→</span>
+            </p>
           </div>
           <img
             src={monstera_leaf}
@@ -103,6 +106,7 @@ function Home() {
             plants.map(plant => (
               <PlantCard
                 key={plant.plantId}
+                plantId={plant.plantId}
                 name={plant.nickname || plant.plantTypeName}
                 type={plant.plantTypeName}
                 location={plant.category}

@@ -1,0 +1,181 @@
+.plant-detail {
+  padding: 0 12px 80px 12px;
+  background: white;
+  min-height: 100vh;
+  overflow-y: auto;
+}
+
+.detail-header {
+  padding: 32px 12px 0;
+}
+
+.back-button {
+  width: 40px;
+  height: 40px;
+  background: #F5F5F5;
+  border: none;
+  border-radius: 50%;
+  padding: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.plant-info {
+  padding: 20px 12px;
+  text-align: center;
+}
+
+.plant-info h1 {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0;
+}
+
+.plant-type {
+  font-size: 16px;
+  color: #666;
+  margin: 8px 0 4px;
+}
+
+.plant-location {
+  font-size: 14px;
+  color: #888;
+}
+
+.plant-image-carousel {
+  margin: 0 12px;
+  height: 375px;
+  overflow: hidden;
+  border-radius: 24px;
+}
+
+.plant-image-carousel img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.action-buttons {
+  padding: 16px 12px;
+  display: flex;
+  gap: 8px;
+}
+
+.action-buttons button {
+  padding: 8px 16px;
+  border-radius: 100px;
+  border: none;
+  font-size: 14px;
+  font-weight: 550;
+}
+
+.action-buttons button.care-tips {
+  background: #000;
+  color: white;
+}
+
+.action-buttons button.soil-moisture {
+  background: #F5F5F5;
+  color: #000;
+  padding: 8px 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 500;
+}
+
+.chat-section {
+  margin: 24px 12px;
+  padding: 24px 12px;
+  background: #00BFA5;
+  border-radius: 16px;
+  color: white;
+}
+
+.chat-section h2 {
+  font-size: 20px;
+  margin: 0 0 8px;
+}
+
+.chat-section p {
+  font-size: 14px;
+  margin: 0 0 12px;
+  opacity: 0.9;
+}
+
+.chatbot-button {
+  background: #FFF;
+  color: #000;
+  font-family: Inter;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 140%;
+  letter-spacing: -0.28px;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.overall-tips {
+  padding: 0 12px 24px;
+}
+
+.overall-tips h2 {
+  font-size: 20px;
+  font-weight: 600;
+  margin: 0 0 20px;
+  text-align: left;
+}
+
+.tips-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.tip-item {
+  background: #F8F8F8;
+  width: 80px;
+  height: 80px;
+  padding: 16px 12px;
+  border-radius: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.tip-item span {
+  display: block;
+  font-size: 14px;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+.tip-item strong {
+  display: block;
+  font-size: 14px;
+  font-weight: 600;
+  color: #000;
+}
+
+.tip-boxes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.tip-box {
+  background: #F5F5F5;
+  padding: 16px;
+  border-radius: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+} 

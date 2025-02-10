@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate, useParams } from 'react-router-dom';
 import '../styles/PlantDetail.css';
+import PlantDetailSkeleton from './PlantDetailSkeleton';
 import nav_home from '../assets/images/nav_home.svg';
 import nav_watering from '../assets/images/nav_watering.svg';
 import nav_profile from '../assets/images/nav_profile.svg';
@@ -35,7 +36,7 @@ function PlantDetail() {
   }, [id]);
 
   if (loading) {
-    return <div>Loading...</div>;
+    return <PlantDetailSkeleton />;
   }
 
   if (!plant) {

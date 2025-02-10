@@ -33,9 +33,9 @@ function Home() {
 
   const getWateringMessage = (count) => {
     if (count === 0) {
-      return "You're plants are all healthy!";
+      return "All plants healthy!";
     }
-    return `You have ${count} plant${count > 1 ? 's' : ''} \nwaiting to be watered`;
+    return `${count} plants need water`;
   };
 
   return (
@@ -48,7 +48,7 @@ function Home() {
       </header>
 
       <section className="next-watering">
-        <h2>Today's Watering</h2>
+        <h2>Today's Wateringㅇㅇ</h2>
         <div className="watering-content">
           <div className="watering-status">
             <div className="watering-text">
