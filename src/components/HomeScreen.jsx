@@ -1,14 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
+import styles from '../App.module.css';
 import PlantCard from './PlantCard';
 import logo from '../assets/images/logo_homepage.svg';
-import plus from '../assets/images/add_plant.svg';
 import monsteraLeaf from '../assets/images/monstera-leaf.svg';
 import nav_home from '../assets/images/nav_home.svg';
 import nav_watering from '../assets/images/nav_watering.svg';
 import nav_profile from '../assets/images/nav_profile.svg';
 
-function Home() {
+export default function HomeScreen() {
   const navigate = useNavigate();
   const [plants, setPlants] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -18,7 +18,7 @@ function Home() {
     fetch('https://rootin-api.hojun.link/v1/plants')
       .then(response => response.json())
       .then(response => {
-        console.log('Plants data:', response.data); // 디버깅용
+        console.log('Plants data:', response.data);
         setPlants(response.data);
         setLoading(false);
       })
@@ -28,7 +28,6 @@ function Home() {
       });
   }, []);
 
-  // 물이 필요한 식물들 필터링
   const plantsNeedingWater = plants.filter(plant => 
     plant.status === 'WATER_NEEDED'
   );
@@ -45,10 +44,10 @@ function Home() {
       <header className="app-header">
         <img src={logo} alt="Logo" className="logo" />
         <button 
-          className="add-plant-button"
+          className={styles.addButton}
           onClick={() => navigate('/search')}
         >
-          <img src={plus} alt="Add plant" />
+          +
         </button>
       </header>
 
@@ -85,7 +84,7 @@ function Home() {
                 type={plant.plantTypeName}
                 location={plant.category}
                 image={plant.imageUrl}
-                status={plant.status}  // status 전달
+                status={plant.status}
               />
             ))
           )}
@@ -105,6 +104,4 @@ function Home() {
       </nav>
     </div>
   );
-}
-
-export default Home; 
+} 

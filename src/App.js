@@ -11,11 +11,17 @@ import nav_home from './assets/images/nav_home.svg';
 import nav_watering from './assets/images/nav_watering.svg';
 import nav_profile from './assets/images/nav_profile.svg';
 import AI from './assets/images/AI.svg';
+import { useNavigate } from 'react-router-dom';
+import PlantSearch from './components/PlantSearch';
+import PlantLocation from './components/PlantLocation';
+import PlantSensor from './components/PlantSensor';
+import Modal from './components/Modal';
 
 
 function App() {
   const [plants, setPlants] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -32,17 +38,33 @@ function App() {
       });
   }, []);
 
+  const handleUnsupportedFeature = () => {
+    setShowModal(true);
+    setTimeout(() => {
+      setShowModal(false);
+    }, 2000);
+  };
+
   return (
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/plant/:id" element={<PlantDetail />} />
+        <Route path="/search" element={<PlantSearch />} />
+        <Route path="/location" element={<PlantLocation />} />
+        <Route path="/sensor" element={<PlantSensor />} />
       </Routes>
+
+      <Modal 
+        message="This feature is not supported in the prototype."
+        isVisible={showModal}
+      />
     </Router>
   );
 }
 
 function Home() {
+  const navigate = useNavigate();
   const [plants, setPlants] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -69,7 +91,10 @@ function Home() {
           alt="Rootin"
           className="rootin-logo"
         />
-        <button className="add-plant-button">
+        <button 
+          className="add-plant-button"
+          onClick={() => navigate('/search')}
+        >
           <img
             src={add_plant}
             alt="Add plant"
@@ -132,13 +157,13 @@ function Home() {
             alt="Home"
           />
         </button>
-        <button>
+        <button >
           <img
             src={nav_watering}
             alt="Watering"
           />
         </button>
-        <button>
+        <button >
           <img
             src={nav_profile}
             alt="Profile"
