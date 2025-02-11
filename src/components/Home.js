@@ -7,11 +7,13 @@ import monsteraLeaf from '../assets/images/monstera-leaf.svg';
 import nav_home from '../assets/images/nav_home.svg';
 import nav_watering from '../assets/images/nav_watering.svg';
 import nav_profile from '../assets/images/nav_profile.svg';
+import Modal from './Modal';
 
 function Home() {
   const navigate = useNavigate();
   const [plants, setPlants] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     setLoading(true);
@@ -38,6 +40,13 @@ function Home() {
       return "All plants healthy!";
     }
     return `${count} plants need water`;
+  };
+
+  const handleUnsupportedFeature = () => {
+    setShowModal(true);
+    setTimeout(() => {
+      setShowModal(false);
+    }, 2000);
   };
 
   return (
@@ -96,13 +105,18 @@ function Home() {
         <button>
           <img src={nav_home} alt="Home" />
         </button>
-        <button>
+        <button onClick={handleUnsupportedFeature}>
           <img src={nav_watering} alt="Watering" />
         </button>
-        <button>
+        <button onClick={handleUnsupportedFeature}>
           <img src={nav_profile} alt="Profile" />
         </button>
       </nav>
+
+      <Modal 
+        message="This feature is not supported in the prototype."
+        isVisible={showModal}
+      />
     </div>
   );
 }

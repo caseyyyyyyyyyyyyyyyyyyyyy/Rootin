@@ -19,24 +19,7 @@ import Modal from './components/Modal';
 
 
 function App() {
-  const [plants, setPlants] = useState([]);
-  const [loading, setLoading] = useState(true);
   const [showModal, setShowModal] = useState(false);
-
-  useEffect(() => {
-    setLoading(true);
-    fetch('https://rootin-api.hojun.link/v1/plants')
-      .then(response => response.json())
-      .then(response => {
-        console.log('API Response:', response);
-        setPlants(response.data);
-        setLoading(false);
-      })
-      .catch(error => {
-        console.error('Error fetching plants:', error);
-        setLoading(false);
-      });
-  }, []);
 
   const handleUnsupportedFeature = () => {
     setShowModal(true);
@@ -48,8 +31,8 @@ function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/plant/:id" element={<PlantDetail />} />
+        <Route path="/" element={<Home handleUnsupportedFeature={handleUnsupportedFeature} />} />
+        <Route path="/plant/:id" element={<PlantDetail handleUnsupportedFeature={handleUnsupportedFeature} />} />
         <Route path="/search" element={<PlantSearch />} />
         <Route path="/location" element={<PlantLocation />} />
         <Route path="/sensor" element={<PlantSensor />} />
@@ -63,7 +46,7 @@ function App() {
   );
 }
 
-function Home() {
+function Home({ handleUnsupportedFeature }) {
   const navigate = useNavigate();
   const [plants, setPlants] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -108,7 +91,7 @@ function Home() {
           <div className="watering-text">
             <h3 className="main-text">You have 1 plant</h3>
             <h3 className="main-text">waiting to be watered</h3>
-            <p className="check-text">
+            <p className="check-text" onClick={handleUnsupportedFeature} style={{ cursor: 'pointer' }}>
               Check your watering <span>→</span>
             </p>
           </div>
@@ -143,7 +126,7 @@ function Home() {
         </div>
       </section>
 
-      <button className="ai-chat-button">
+      <button className="ai-chat-button" onClick={handleUnsupportedFeature}>
         <img
           src={AI}
           alt="AI Chat"
@@ -157,13 +140,13 @@ function Home() {
             alt="Home"
           />
         </button>
-        <button >
+        <button onClick={handleUnsupportedFeature}>
           <img
             src={nav_watering}
             alt="Watering"
           />
         </button>
-        <button >
+        <button onClick={handleUnsupportedFeature}>
           <img
             src={nav_profile}
             alt="Profile"
