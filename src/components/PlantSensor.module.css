@@ -1,0 +1,88 @@
+.container {
+  padding: 32px 0;
+  background: white;
+  min-height: 100vh;
+  max-width: 500px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.closeButton {
+  width: 40px;
+  height: 40px;
+  background: #F5F5F5;
+  border: none;
+  border-radius: 50%;
+  font-size: 20px;
+  cursor: pointer;
+  margin-left: 20px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 24px 20px 8px;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: #666;
+  margin: 0 20px 40px;
+  line-height: 1.5;
+}
+
+.plantPreview {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0 20px;
+}
+
+.plantImage {
+  width: 200px;
+  height: 200px;
+  border-radius: 24px;
+  object-fit: cover;
+  margin-bottom: 24px;
+}
+
+.plantName {
+  font-size: 24px;
+  font-weight: 600;
+  margin: 0 0 8px;
+}
+
+.plantLocation {
+  font-size: 16px;
+  color: #666;
+  margin: 0;
+}
+
+.buttonGroup {
+  margin-top: auto;
+  padding: 0 20px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.connectButton {
+  height: 56px;
+  background: black;
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.skipButton {
+  background: none;
+  border: none;
+  color: #666;
+  font-size: 16px;
+  cursor: pointer;
+  padding: 8px;
+} 

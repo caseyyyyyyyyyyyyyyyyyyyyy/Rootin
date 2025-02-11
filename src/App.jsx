@@ -1,26 +1,27 @@
+import './App.css';
+import { BrowserRouter as Router, Route, Routes, useNavigate } from 'react-router-dom';
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
-import PlantCard from './PlantCard';
-import logo from '../assets/images/logo_homepage.svg';
-import plus from '../assets/images/add_plant.svg';
-import monsteraLeaf from '../assets/images/monstera-leaf.svg';
-import nav_home from '../assets/images/nav_home.svg';
-import nav_watering from '../assets/images/nav_watering.svg';
-import nav_profile from '../assets/images/nav_profile.svg';
-import Modal from './Modal';
+import PlantDetail from './components/PlantDetail';
+import PlantSearch from './components/PlantSearch';
+import PlantCard from './components/PlantCard';
+import logo from './assets/images/logo_homepage.svg';
+import plus from './assets/images/add_plant.svg';
+import monsteraLeaf from './assets/images/monstera-leaf.svg';
+import nav_home from './assets/images/nav_home.svg';
+import nav_watering from './assets/images/nav_watering.svg';
+import nav_profile from './assets/images/nav_profile.svg';
+import Home from './components/Home';
 
-function Home() {
+function HomeScreen() {
   const navigate = useNavigate();
   const [plants, setPlants] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     setLoading(true);
     fetch('https://rootin-api.hojun.link/v1/plants')
       .then(response => response.json())
       .then(response => {
-        console.log('Plants data:', response.data); // 디버깅용
         setPlants(response.data);
         setLoading(false);
       })
@@ -30,7 +31,6 @@ function Home() {
       });
   }, []);
 
-  // 물이 필요한 식물들 필터링
   const plantsNeedingWater = plants.filter(plant => 
     plant.status === 'WATER_NEEDED'
   );
@@ -42,17 +42,10 @@ function Home() {
     return `${count} plants need water`;
   };
 
-  const handleUnsupportedFeature = () => {
-    setShowModal(true);
-    setTimeout(() => {
-      setShowModal(false);
-    }, 2000);
-  };
-
   return (
     <div className="App">
       <header className="app-header">
-        <img src={logo} alt="Logo" className="logo" />
+        <img src={logo} alt="Logo" className="rootin-logo" />
         <button 
           className="add-plant-button"
           onClick={() => navigate('/search')}
@@ -94,7 +87,7 @@ function Home() {
                 type={plant.plantTypeName}
                 location={plant.category}
                 image={plant.imageUrl}
-                status={plant.status}  // status 전달
+                status={plant.status}
               />
             ))
           )}
@@ -105,20 +98,27 @@ function Home() {
         <button>
           <img src={nav_home} alt="Home" />
         </button>
-        <button onClick={handleUnsupportedFeature}>
+        <button>
           <img src={nav_watering} alt="Watering" />
         </button>
-        <button onClick={handleUnsupportedFeature}>
+        <button>
           <img src={nav_profile} alt="Profile" />
         </button>
       </nav>
-
-      <Modal 
-        message="This feature is not supported in the prototype."
-        isVisible={showModal}
-      />
     </div>
   );
 }
 
-export default Home; 
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/plant/:id" element={<PlantDetail />} />
+        <Route path="/search" element={<PlantSearch />} />
+      </Routes>
+    </Router>
+  );
+}
+
+export default App; 

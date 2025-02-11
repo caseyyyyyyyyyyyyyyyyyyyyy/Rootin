@@ -3,6 +3,7 @@
   max-width: 500px;
   margin: 0 auto;
   padding: 0 16px 140px 16px;
+
 }
 
 header {
@@ -566,4 +567,9 @@ nav {
   font-size: 18px;
   line-height: 1.2;
   white-space: pre-line;
+}
+
+body {
+  margin: 0;
+  padding: 0;
 }
